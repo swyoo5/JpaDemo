@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--html 주석 : 표시 x-->
+<!--thymeleaf 주석 : 해석 x-->
+<!--배열-->
+<a th:href="@{/hello1(name='AAA', age=16)}">Go to /hello</a>
+<a th:href="@{/hello2(name='한글 처리', age=16)}">Go to /hello</a>
+<a th:href="@{/hello2(name=${{'AA', 'BB', 'CC'}, age=16)}">Go to /hello</a>
+
+<ul>
+    <li th:each="str,status:${list}">
+        <span th:if="${status.odd}">ODD => [[${str}]]</span>
+        <span th:unless="${status.odd}">EVEN => [[${str}]]</span>
+    </li>
+</ul>
+
+<div th:with="num1 = ${10}, num2 = ${20}">
+  <h4 th:text="${num1 + num2}"></h4>
+</div>
+
+<h4>[[${list}]]</h4>
+<hr/>
+<h4 th:text="${list}"></h4>
+</body>
+</html>
