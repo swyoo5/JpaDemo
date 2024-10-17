@@ -1,6 +1,7 @@
 package org.pgm.jpademo.controller;
 
 import lombok.extern.log4j.Log4j2;
+import org.pgm.jpademo.dto.SampleDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -65,6 +66,14 @@ public class SampleController {
         maps.put("박경미", 75);
         maps.put("윤요섭", 85);
         model.addAttribute("maps", maps);
+
+        SampleDTO sampleDTO=new SampleDTO();
+        sampleDTO.setName("hong");
+        sampleDTO.setAge(20);
+        sampleDTO.setGender("남자");
+        model.addAttribute("sampleDTO", sampleDTO);
+
+
         model.addAttribute("strList", strList);
         model.addAttribute("strList2", strList2);
     }
