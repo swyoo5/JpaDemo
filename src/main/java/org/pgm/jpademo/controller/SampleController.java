@@ -77,4 +77,9 @@ public class SampleController {
         model.addAttribute("strList", strList);
         model.addAttribute("strList2", strList2);
     }
+
+    @GetMapping("/ex/ex3")
+    public void ex3() {
+        log.info("ex3");
+    }
 }
