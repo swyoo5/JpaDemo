@@ -14,7 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Board {
+public class Board extends BaseEntity {
     @Id // primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto Increment
     private Long bno;
@@ -24,9 +24,9 @@ public class Board {
     private String content;
     @Column(nullable = false, length = 50)
     private String writer;
-    @CreationTimestamp
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private Date postdate;
     @ColumnDefault("0")
     private int visitcount;
+    public void updateVisitcount() {
+        this.visitcount++;
+    }
 }
